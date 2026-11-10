@@ -50,6 +50,38 @@ Le capteur de places expose également les attributs suivants :
 | `latitude`, `longitude` | Position publiée du parking |
 | `data_updated_at` | Moment de la dernière réponse Open Data reçue |
 
+## Carte Lovelace Strasbourg Parkings
+
+Une carte Lovelace est fournie avec l'intégration. Elle présente les places
+libres, la capacité, l'occupation et l'état de chaque parking dans une vue
+compacte.
+
+Après l'installation ou la mise à jour de l'intégration et un redémarrage de
+Home Assistant, ajoutez une seule fois cette ressource dans
+**Paramètres → Tableaux de bord → Ressources** :
+
+```text
+URL : /strasbourg_parkings/strasbourg-parkings-card.js
+Type : Module JavaScript
+```
+
+Ajoutez ensuite une carte manuelle au tableau de bord :
+
+```yaml
+type: custom:strasbourg-parkings-card
+title: Parkings proches
+entities:
+  - sensor.strasbourg_parking_gare_wodli_places_disponibles
+  - sensor.strasbourg_parking_rivetoile_places_disponibles
+max_rows: 4
+show_capacity: true
+show_status: true
+```
+
+Utilisez les entités **Places disponibles** créées par l'intégration. Les
+options `title`, `max_rows`, `show_capacity` et `show_status` sont facultatives.
+Vous pouvez aussi configurer une seule entité avec la clé `entity`.
+
 Exemple d'automatisation pour une alerte de saturation :
 
 ```yaml
