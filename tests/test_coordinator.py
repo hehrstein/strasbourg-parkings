@@ -63,10 +63,6 @@ async def test_coordinator_keeps_only_selected_parkings(
     assert data["fetched_at"]
 
 
-async def test_coordinator_enforces_source_refresh_floor(hass) -> None:
+def test_update_interval_enforces_source_refresh_floor() -> None:
     """Even an invalid legacy setting cannot poll faster than three minutes."""
-    coordinator = coordinator_module.StrasbourgParkingsCoordinator(
-        hass, make_entry(["first"], interval=1)
-    )
-
-    assert coordinator.update_interval == timedelta(minutes=3)
+    assert coordinator_module._update_interval(1) == timedelta(minutes=3)

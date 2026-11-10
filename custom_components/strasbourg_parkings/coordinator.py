@@ -30,18 +30,12 @@ class StrasbourgParkingsCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         configured_interval = _configured_value(
             entry, CONF_SCAN_INTERVAL, DEFAULT_UPDATE_INTERVAL.total_seconds() / 60
         )
-        try:
-            interval = timedelta(
-                minutes=max(MIN_SCAN_INTERVAL_MINUTES, int(configured_interval))
-            )
-        except (TypeError, ValueError):
-            interval = DEFAULT_UPDATE_INTERVAL
 
         super().__init__(
             hass,
             _LOGGER,
             name=DOMAIN,
-            update_interval=interval,
+            update_interval=_update_interval(configured_interval),
             config_entry=entry,
         )
         self._client = StrasbourgParkingsApiClient(hass)
@@ -74,6 +68,14 @@ class StrasbourgParkingsCoordinator(DataUpdateCoordinator[dict[str, Any]]):
 def _configured_value(entry: ConfigEntry, key: str, default: Any) -> Any:
     """Use options before initial-entry data."""
     return entry.options.get(key, entry.data.get(key, default))
+
+
+def _update_interval(value: Any) -> timedelta:
+    """Return a valid update interval without exceeding the source cadence."""
+    try:
+        return timedelta(minutes=max(MIN_SCAN_INTERVAL_MINUTES, int(value)))
+    except (TypeError, ValueError):
+        return DEFAULT_UPDATE_INTERVAL
 
 
 def _as_string_list(value: Any) -> list[str]:
