@@ -1,0 +1,41 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Strasbourg Parkings",
+        "description": "Chargement de la liste des parkings en temps réel de l'Eurométropole de Strasbourg."
+      },
+      "select": {
+        "title": "Parkings à suivre",
+        "description": "Choisissez les parkings pour lesquels créer des capteurs. La source est actualisée par l'Eurométropole toutes les trois minutes.",
+        "data": {
+          "parkings": "Parkings",
+          "scan_interval": "Intervalle d'actualisation (minutes)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossible de joindre le portail Open Data de Strasbourg.",
+      "select_parking": "Sélectionnez au moins un parking."
+    },
+    "abort": {
+      "single_instance_allowed": "Strasbourg Parkings est déjà configuré."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Strasbourg Parkings",
+        "description": "Modifiez les parkings suivis ou l'intervalle d'actualisation.",
+        "data": {
+          "parkings": "Parkings",
+          "scan_interval": "Intervalle d'actualisation (minutes)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossible de joindre le portail Open Data de Strasbourg.",
+      "select_parking": "Sélectionnez au moins un parking."
+    }
+  }
+}

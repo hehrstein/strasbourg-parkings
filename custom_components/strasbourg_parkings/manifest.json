@@ -1,0 +1,12 @@
+{
+  "domain": "strasbourg_parkings",
+  "name": "Strasbourg Parkings",
+  "codeowners": ["@hehrstein"],
+  "config_flow": true,
+  "documentation": "https://github.com/hehrstein/strasbourg-parkings",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/hehrstein/strasbourg-parkings/issues",
+  "requirements": [],
+  "single_config_entry": true,
+  "version": "0.1.0"
+}

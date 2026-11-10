@@ -1,0 +1,35 @@
+{
+  "total_count": 2,
+  "results": [
+    {
+      "nom_parking": "Parking Gare Wodli",
+      "idsurfs": "1382_DEP_8",
+      "ident": 10,
+      "etat": 1,
+      "etat_descriptif": "Ouvert",
+      "total": 955,
+      "libre": 492,
+      "infousager": "490",
+      "realtimestatus": "GREEN",
+      "infoappli": "492",
+      "taux_occup": 0.4848167539267016,
+      "position": {"lon": 7.7367710015538, "lat": 48.5873845279566},
+      "couleur_occup": "vert"
+    },
+    {
+      "nom_parking": "Parking Zénith",
+      "idsurfs": "1400_DEP_26",
+      "ident": 1,
+      "etat": 2,
+      "etat_descriptif": "Fermé",
+      "total": 3175,
+      "libre": 3142,
+      "infousager": "0",
+      "realtimestatus": "BLACK",
+      "infoappli": "Fermé",
+      "taux_occup": 0.010393700787401575,
+      "position": {"lon": 7.68646701218103, "lat": 48.5953352876375},
+      "couleur_occup": "vert"
+    }
+  ]
+}

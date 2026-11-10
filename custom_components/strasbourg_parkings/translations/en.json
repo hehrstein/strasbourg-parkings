@@ -1,0 +1,41 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Strasbourg Parkings",
+        "description": "Loading the live parking list from the Strasbourg Eurometropolis."
+      },
+      "select": {
+        "title": "Car parks to monitor",
+        "description": "Choose the car parks for which to create sensors. The Eurometropolis refreshes the source every three minutes.",
+        "data": {
+          "parkings": "Car parks",
+          "scan_interval": "Update interval (minutes)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to Strasbourg's Open Data portal.",
+      "select_parking": "Select at least one car park."
+    },
+    "abort": {
+      "single_instance_allowed": "Strasbourg Parkings is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Strasbourg Parkings",
+        "description": "Change the monitored car parks or update interval.",
+        "data": {
+          "parkings": "Car parks",
+          "scan_interval": "Update interval (minutes)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to Strasbourg's Open Data portal.",
+      "select_parking": "Select at least one car park."
+    }
+  }
+}
