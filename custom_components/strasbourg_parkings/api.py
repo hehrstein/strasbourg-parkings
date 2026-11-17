@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
+import asyncio
 from dataclasses import dataclass
 from datetime import datetime
 import logging
 from typing import Any
 
 import aiohttp
-import async_timeout
 
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
@@ -41,7 +41,7 @@ class StrasbourgParkingsApiClient:
     async def async_get_parkings(self) -> StrasbourgParkingsResult:
         """Return every parking indexed by its stable Open Data identifier."""
         try:
-            async with async_timeout.timeout(15):
+            async with asyncio.timeout(15):
                 async with self._session.get(API_URL) as response:
                     response.raise_for_status()
                     payload = await response.json()
